@@ -1,0 +1,30 @@
+<div class="btn-group" role="group">
+    <button class="btn btn-primary" (click)="goBack()">go back</button>
+    <a *ngIf="entry" class="btn btn-warning" routerLink="/entries/edit/{{entry.id}}">Edit</a>
+    <a *ngIf="entry" class="btn btn-danger" routerLink="/entries/remove/{{entry.id}}">Remove</a>
+</div>
+
+<form *ngIf="entry">
+    <div class="form-group">
+        <label for="entryId">Id</label>
+        <input [(ngModel)]="entry.id" type="text" class="form-control" id="entryId" placeholder="id" name="id" disabled>
+    </div>
+    <div class="form-group">
+        <label for="entryWord">Word</label>
+        <input [(ngModel)]="entry.word" type="text" class="form-control" id="entryWord" placeholder="word" name="word" disabled>
+    </div>
+    <div class="form-group">
+        <label for="entryDescription">Description</label>
+        <input [(ngModel)]="entry.description" type="text" class="form-control" id="entryDescription" placeholder="description" name="description" disabled>
+    </div>
+    <div class="form-group">
+        <label for="entryTranslation">Translation</label>
+        <input [(ngModel)]="entry.translation" type="text" class="form-control" id="entryTranslation" placeholder="translation" name="translation" disabled>
+    </div>
+    <div class="form-group">
+        <label for="entryLanguage">Language</label>
+        <select [(ngModel)]="entry.language" class="form-control" id="entryLanguage" name="language" disabled>
+            <option *ngFor="let language of languages" [ngValue]="language">{{language.name}}</option>
+        </select>
+    </div>
+</form>

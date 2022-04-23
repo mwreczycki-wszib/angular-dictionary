@@ -1,43 +1,26 @@
-<h3>Top Todos: </h3>
-<table class="table">
-    <thead>
-        <tr>
-            <th scope="col">Title</th>
-            <th scope="col">Status</th>
-            <th scope="col">Due Date</th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr *ngFor="let todo of todos" routerLink="/detail/{{todo.id}}">
-            <td>{{todo.title}}</td>
-            <td>{{todo.status}}</td>
-            <td>{{todo.dueDate}}</td>
-        </tr>
-    </tbody>
-</table>
+<h3>Search: </h3>
+<input [(ngModel)]="text" type="text" class="form-control" name="text" placeholder="text">
+<a *ngIf="text" class="btn btn-primary" routerLink="/entries/search/{{text}}">Search</a>
 <h3>Statistics: </h3>
 <table class="table">
     <thead>
         <tr>
-            <th scope="col">Status</th>
+            <th scope="col">Name</th>
             <th scope="col">Count</th>
         </tr>
     </thead>
     <tbody>
-        <tr routerLink="/search/NEW">
-            <td>NEW</td>
-            <td>{{newTodos}}</td>
+        <tr routerLink="/languages">
+            <td>Languages</td>
+            <td>{{totalLanguages}}</td>
         </tr>
-        <tr routerLink="/search/IN_PROGRESS">
-            <td>IN_PROGRESS</td>
-            <td>{{inProgressTodos}}</td>
+        <tr routerLink="/entries">
+            <td>Total Entries</td>
+            <td>{{totalEntries}}</td>
         </tr>
-        <tr routerLink="/search/COMPLETED">
-            <td>COMPLETED</td>
-            <td>{{completedTodos}}</td>
+        <tr *ngFor="let language of languages">
+            <td>{{language.name}}</td>
+            <td>{{entryCountByLanguage(language.code) | async}}</td>
         </tr>
     </tbody>
 </table>
-<div>
-
-</div>

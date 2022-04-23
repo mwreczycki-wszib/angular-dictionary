@@ -1,6 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { Todo } from '../todo';
-import { TodoService } from '../todo.service';
+import { Language } from '../language';
+import { DictionaryEntry } from '../dictionaryEntry';
+import { EntryService } from '../entry.service';
+import { LanguageService } from '../language.service';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-dashboard',
@@ -9,22 +12,25 @@ import { TodoService } from '../todo.service';
 })
 export class DashboardComponent implements OnInit {
 
-  todos: Todo[]
+  totalEntries: number
+  totalLanguages: number
+  languages: Language[]
 
-  newTodos: number
-  inProgressTodos: number
-  completedTodos: number
+  text?: string;
 
-  constructor(private todoService: TodoService) { }
+  constructor(private entryService: EntryService, private languageService: LanguageService) { }
 
   ngOnInit() {
     this.load()
   }
 
   load(): void {
-    this.todoService.getUpcommingTodos().subscribe(todos => this.todos = todos)
-    this.todoService.todoCount("NEW").subscribe(count => this.newTodos = count)
-    this.todoService.todoCount("IN_PROGRESS").subscribe(count => this.inProgressTodos = count)
-    this.todoService.todoCount("COMPLETED").subscribe(count => this.completedTodos = count)
+    this.entryService.countTotalEntries().subscribe(totalEntries => this.totalEntries = totalEntries)
+    this.languageService.countLanguages().subscribe(totalLanguages => this.totalLanguages = totalLanguages)
+    this.languageService.getLanguages().subscribe(languages => this.languages = languages)
+  }
+
+  entryCountByLanguage(code: string): Observable<number>{
+    return this.entryService.countEntriesByLanguage(code);
   }
 }

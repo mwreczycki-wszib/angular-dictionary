@@ -1,0 +1,29 @@
+<div class="btn-group" role="group">
+    <button class="btn btn-primary" (click)="goBack()">go back</button>
+</div>
+
+<form *ngIf="entry">
+    <div class="form-group">
+        <label for="entryId">Id</label>
+        <input [(ngModel)]="entry.id" type="text" class="form-control" id="entryId" placeholder="id" name="id" disabled>
+    </div>
+    <div class="form-group">
+        <label for="entryWord">Word</label>
+        <input [(ngModel)]="entry.word" type="text" class="form-control" id="entryWord" placeholder="word" name="word">
+    </div>
+    <div class="form-group">
+        <label for="entryDescription">Description</label>
+        <input [(ngModel)]="entry.description" type="text" class="form-control" id="entryDescription" placeholder="description" name="description">
+    </div>
+    <div class="form-group">
+        <label for="entryTranslation">Translation</label>
+        <input [(ngModel)]="entry.translation" type="text" class="form-control" id="entryTranslation" placeholder="translation" name="translation">
+    </div>
+    <div class="form-group">
+        <label for="entryLanguage">Language</label>
+        <select [(ngModel)]="entry.language" class="form-control" id="entryLanguage" name="language">
+            <option *ngFor="let language of languages" [ngValue]="language">{{language.name}}</option>
+        </select>
+    </div>
+    <button class="btn btn-primary" (click)="save()">Save</button>
+</form>

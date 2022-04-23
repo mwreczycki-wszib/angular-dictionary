@@ -1,0 +1,23 @@
+<h3>All Languages: </h3>
+<div class="btn-group" role="group">
+    <a class="btn btn-primary" routerLink="/languages/new">New Language</a>
+</div>
+<table class="table">
+    <thead>
+        <tr>
+            <th scope="col">Code</th>
+            <th scope="col">Name</th>
+            <th scope="col">Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let language of languages">
+            <td>{{language.code}}</td>
+            <td>{{language.name}}</td>
+            <td>
+                <a *ngIf="language" class="btn btn-warning" routerLink="/languages/edit/{{language.id}}">Edit</a>
+                <a *ngIf="language" class="btn btn-danger" (click)="removeLanguage(language.id)">Remove</a>
+            </td>
+        </tr>
+    </tbody>
+</table>

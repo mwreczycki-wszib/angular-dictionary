@@ -1,0 +1,20 @@
+<h3>All Entries: </h3>
+<div class="btn-group" role="group">
+    <a class="btn btn-primary" routerLink="/entries/new">New Entry</a>
+</div>
+<table class="table">
+    <thead>
+        <tr>
+            <th scope="col">Word</th>
+            <th scope="col">Description</th>
+            <th scope="col">Language</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let entry of entries" routerLink="/entries/detail/{{entry.id}}">
+            <td>{{entry.word}}</td>
+            <td>{{entry.description}}</td>
+            <td>{{entry.language.name}}</td>
+        </tr>
+    </tbody>
+</table>

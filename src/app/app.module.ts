@@ -5,26 +5,32 @@ import { HttpClientModule }    from '@angular/common/http';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { TodosComponent } from './todos/todos.component';
-import { TodoDetailComponent } from './todo-detail/todo-detail.component';
+import { EntriesComponent } from './entries/entries.component';
+import { EntryDetailComponent } from './entry-detail/entry-detail.component';
 import { MessagesComponent } from './messages/messages.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
-import { TodoNewComponent } from './todo-new/todo-new.component';
-import { TodoEditComponent } from './todo-edit/todo-edit.component';
-import { TodoRemoveComponent } from './todo-remove/todo-remove.component';
-import { TodoSearchComponent } from './todo-search/todo-search.component';
+import { EntryNewComponent } from './entry-new/entry-new.component';
+import { EntryEditComponent } from './entry-edit/entry-edit.component';
+import { EntryRemoveComponent } from './entry-remove/entry-remove.component';
+import { EntrySearchComponent } from './entry-search/entry-search.component';
+import { LanguagesComponent } from './languages/languages.component'
+import { LanguageEditComponent } from './language-edit/language-edit.component'
+import { LanguageNewComponent } from './language-new/language-new.component'
 
 @NgModule({
   declarations: [
     AppComponent,
-    TodosComponent,
-    TodoDetailComponent,
+    EntriesComponent,
+    EntryDetailComponent,
     MessagesComponent,
     DashboardComponent,
-    TodoNewComponent,
-    TodoEditComponent,
-    TodoRemoveComponent,
-    TodoSearchComponent
+    EntryNewComponent,
+    EntryEditComponent,
+    EntryRemoveComponent,
+    EntrySearchComponent,
+    LanguagesComponent,
+    LanguageEditComponent,
+    LanguageNewComponent
   ],
   imports: [
     BrowserModule,
