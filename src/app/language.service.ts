@@ -29,7 +29,7 @@ export class LanguageService {
   }
 
   countLanguages(): Observable<number> {
-    return this.http.get<number>(this.baseUrl + "/dictionary/language/count").pipe(
+    return this.http.get<number>(this.baseUrl + "/dictionary/language/property/count").pipe(
       catchError(this.handleError<number>('countLanguages', 0))
     );
   }

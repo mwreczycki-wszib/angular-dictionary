@@ -29,13 +29,13 @@ export class EntryService {
   }
 
   countTotalEntries(): Observable<number> {
-    return this.http.get<number>(this.baseUrl + "/dictionary/entry/count").pipe(
+    return this.http.get<number>(this.baseUrl + "/dictionary/entry/property/count").pipe(
       catchError(this.handleError<number>('countTotalEntries', 0))
     );
   }
 
   countEntriesByLanguage(code: string): Observable<number> {
-    return this.http.get<number>(this.baseUrl + "/dictionary/entry/count", {
+    return this.http.get<number>(this.baseUrl + "/dictionary/entry/property/count", {
       params : {
         code : code
       }
@@ -45,7 +45,7 @@ export class EntryService {
   }
 
   entrySearch(text: string): Observable<DictionaryEntry[]> {
-    return this.http.get<DictionaryEntry[]>(this.baseUrl + "/dictionary/entry/search", {
+    return this.http.get<DictionaryEntry[]>(this.baseUrl + "/dictionary/entry/operation/search", {
       params : {
         text : text
       }
