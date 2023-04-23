@@ -24,7 +24,7 @@ export class LanguagesComponent implements OnInit {
 
   removeLanguage(id: number): void {
     this.languageService.removeLanguage(id).subscribe(language =>
-      this.router.navigate(['/languages'])
+      this.getLanguages()
     )
   }
 
