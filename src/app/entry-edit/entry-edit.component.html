@@ -21,8 +21,8 @@
     </div>
     <div class="form-group">
         <label for="entryLanguage">Language</label>
-        <select [(ngModel)]="entry.language" class="form-control" id="entryLanguage" name="language">
-            <option *ngFor="let language of languages" [ngValue]="language">{{language.name}}</option>
+        <select [(ngModel)]="entry.language.id" class="form-control" id="entryLanguage" name="language">
+          <option *ngFor="let language of languages" [ngValue]="language.id">{{language.name}}</option>
         </select>
     </div>
     <button class="btn btn-primary" (click)="save()">Save</button>
