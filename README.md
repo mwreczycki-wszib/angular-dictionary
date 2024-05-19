@@ -75,12 +75,6 @@ All requests executions can be found in file language.service.ts
 - Input : void
 - Output : List of DictionaryEntry entities in the system
 
-### GET /api/dictionary/entry
-
-- Request Type : GET
-- Input : void
-- Output : List of DictionaryEntry entities in the system
-
 ### GET /api/dictionary/entry/property/count
 
 - Request Type : GET
