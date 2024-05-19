@@ -18,9 +18,5 @@
             <td>Total Entries</td>
             <td>{{totalEntries}}</td>
         </tr>
-        <tr *ngFor="let language of languages">
-            <td>{{language.name}}</td>
-            <td>{{entryCountByLanguage(language.code) | async}}</td>
-        </tr>
     </tbody>
 </table>

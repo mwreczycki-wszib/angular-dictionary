@@ -30,7 +30,10 @@ export class DashboardComponent implements OnInit {
     this.languageService.getLanguages().subscribe(languages => this.languages = languages)
   }
 
-  entryCountByLanguage(code: string): Observable<number>{
-    return this.entryService.countEntriesByLanguage(code);
+  entryCountByLanguage(code: string): number{
+    let out
+    this.entryService.countEntriesByLanguage(code)
+      .subscribe(count => out = count);
+    return out
   }
 }
